@@ -65,4 +65,28 @@ namespace ros
     normalizeSecNSec(sec, nsec);
     return *this;
   }
+  
+  bool Time::operator <(const Time &rhs){
+    if (sec < rhs.sec) return true;
+    if (sec == rhs.sec && nsec < rhs.nsec) return true;
+    return false;
+  }
+  
+  bool Time::operator >(const Time &rhs){
+    if (sec > rhs.sec) return true;
+    if (sec == rhs.sec && nsec > rhs.nsec) return true;
+    return false;
+  }
+  
+  bool Time::operator <=(const Time &rhs){
+    if (sec > rhs.sec) return false;
+    if (sec == rhs.sec && nsec > rhs.nsec) return false;
+    return true;
+  }
+  
+  bool Time::operator >=(const Time &rhs){
+    if (sec < rhs.sec) return false;
+    if (sec == rhs.sec && nsec < rhs.nsec) return false;
+    return true;
+  }
 }

@@ -63,6 +63,11 @@ namespace ros
 
       Time& operator +=(const Duration &rhs);
       Time& operator -=(const Duration &rhs);
+      
+      bool operator <(const Time &rhs);
+      bool operator >(const Time &rhs);
+      bool operator <=(const Time &rhs);
+      bool operator >=(const Time &rhs);
 
       static Time now();
       static void setNow( Time & new_now);
